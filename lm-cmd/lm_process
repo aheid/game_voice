@@ -1,0 +1,6 @@
+#!/bin/bash
+bzcat source_text.bz2 |\
+  python preprocess.py |\
+  ./kenlm/bin/lmplz -o 3 > text.arpa
+
+./kenlm/bin/build_binary text.arpa lm.binary
